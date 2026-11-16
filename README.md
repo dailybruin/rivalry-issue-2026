@@ -1,6 +1,6 @@
-## Flat Page Starter Template in React
+## Rivalry Issue 2026
 
-This repository is a template for building flat pages in React. It provides a basic structure with common scripts to help you get started quickly.
+This repository is a for the USC-UCLA rivalry issue 2026.
 
 ## Available Scripts
 
@@ -47,6 +47,3 @@ To set up, test, and build the app:
    npm start
 
 
-## Documentation
-
-See documentation [LINK IT HERE SAKSHI] for GitHub rules, PR conventions, and good coding practices.
