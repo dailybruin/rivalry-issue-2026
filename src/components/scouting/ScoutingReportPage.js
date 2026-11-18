@@ -199,15 +199,11 @@ const ScoutingReportPage = ({
     cards = []
   } = data || {};
 
-  const findInitialIndex = () => {
-    if (typeof initialCardIndex === 'number' && initialCardIndex >= 0 && initialCardIndex < cards.length) {
-      return initialCardIndex;
-    }
-    const sampleIdx = cards.findIndex(c => c.id === 'lincoln-riley-sample');
-    return sampleIdx !== -1 ? sampleIdx : 0;
-  };
-
-  const [currentIndex, setCurrentIndex] = useState(findInitialIndex);
+  const [currentIndex, setCurrentIndex] = useState(() => (
+    typeof initialCardIndex === 'number' && initialCardIndex >= 0 && initialCardIndex < cards.length
+      ? initialCardIndex
+      : 0
+  ));
 
   const total = cards.length;
   const currentCard = total > 0 ? cards[currentIndex] : null;
@@ -271,7 +267,7 @@ const ScoutingReportPage = ({
             <PageTitle>{headerTitle}</PageTitle>
           </TopBarCenter>
           <TopBarRight>
-            <CounterBadge aria-label={`Card ${currentIndex + 1} of ${total}`}>
+            <CounterBadge role="status" aria-label={`Card ${currentIndex + 1} of ${total}`}>
               {counterText}
             </CounterBadge>
           </TopBarRight>

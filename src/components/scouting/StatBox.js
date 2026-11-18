@@ -39,13 +39,11 @@ const StatLabel = styled.div`
 const StatValue = styled.div`
   font-family: ${fonts.pixel};
   font-size: 13px;
-  line-height: 1.2;
+  line-height: 1.25;
   color: ${colors.textLight};
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
 
   ${mediaQueries.mobile} {
     font-size: 11px;

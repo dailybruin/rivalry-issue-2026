@@ -56,17 +56,17 @@ const ReportParagraph = styled.p`
 `;
 
 const ReportPanel = ({ label = 'The Report', paragraphs = [] }) => {
+  if (!paragraphs || paragraphs.length === 0) {
+    return null;
+  }
+
   return (
     <PanelOuter aria-labelledby="scouting-report-heading">
       <PanelInner>
         <ReportHeading id="scouting-report-heading">{label}</ReportHeading>
-        {paragraphs && paragraphs.length > 0 ? (
-          paragraphs.map((para, index) => (
-            <ReportParagraph key={index}>{para}</ReportParagraph>
-          ))
-        ) : (
-          <ReportParagraph>Lorem ipsum dolor sit amet.</ReportParagraph>
-        )}
+        {paragraphs.map((para, index) => (
+          <ReportParagraph key={index}>{para}</ReportParagraph>
+        ))}
       </PanelInner>
     </PanelOuter>
   );

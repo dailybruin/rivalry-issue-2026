@@ -1,6 +1,8 @@
 export const colors = {
   pageBackground: "#6e0a0a",
   panelBackground: "#0e1532",
+  panelBackgroundHover: "#1a2444",
+  panelBackgroundActive: "#080c1e",
   borderLight: "#ffffff",
   accentGold: "#e8b038",
   cardBackgroundDefault: "#d14c2d",

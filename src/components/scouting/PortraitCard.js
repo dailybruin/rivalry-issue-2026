@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, fonts, mediaQueries } from '../../shared/config';
-import placeholderFallback from '../../images/portrait-placeholder.png';
+import defaultPortrait from '../../images/lincoln-riley.png';
 
 const Frame = styled.div`
   border: 6px solid ${colors.borderLight};
@@ -75,12 +75,12 @@ const CaptionBar = styled.div`
 `;
 
 const resolvePortraitImage = (filename) => {
-  if (!filename) return placeholderFallback;
+  if (!filename) return defaultPortrait;
   try {
     const asset = require(`../../images/${filename}`);
     return asset.default || asset;
   } catch (err) {
-    return placeholderFallback;
+    return defaultPortrait;
   }
 };
 
