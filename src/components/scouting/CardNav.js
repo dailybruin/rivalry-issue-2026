@@ -26,6 +26,10 @@ const NavButton = styled.button`
   }
 
   &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
     outline: 2px solid ${colors.accentGold};
     outline-offset: 2px;
   }

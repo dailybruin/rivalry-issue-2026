@@ -10,18 +10,17 @@
       "name": "Sammy Omosigho",
       "role": "Linebacker",
       "teamName": "USC Trojans",
-      "portraitImage": "lincoln-riley.png",
-      "portraitAlt": "Pixel art portrait of Sammy Omosigho in USC uniform",
+      "portraitImage": "portrait-placeholder.png",
+      "portraitAlt": "Pixel art portrait placeholder of Sammy Omosigho",
       "portraitBackgroundColor": "#d14c2d",
       "stats": [
-        { "label": "CLASS", "value": "SO" },
-        { "label": "HT / WT", "value": "6-2 / 219" },
-        { "label": "HOMETOWN", "value": "Oklahoma City, OK" },
-        { "label": "PREVIOUS", "value": "Oklahoma" }
+        { "label": "CLASS", "value": "-" },
+        { "label": "HT / WT", "value": "-" },
+        { "label": "HOMETOWN", "value": "-" },
+        { "label": "PREVIOUS", "value": "-" }
       ],
       "report": [
-        "Transferred to USC following a standout freshman campaign, bringing aggressive lateral speed and pass coverage skills to the Trojan defense.",
-        "Expected to anchor the inside linebacker rotation and provide veteran leadership under new defensive schemes."
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       ]
     },
     {
@@ -30,8 +29,8 @@
       "name": "Lincoln Riley",
       "role": "Head Coach",
       "teamName": "USC Trojans",
-      "portraitImage": "lincoln-riley.png",
-      "portraitAlt": "Pixel art portrait of Lincoln Riley wearing a headset and cardinal Trojans hoodie",
+      "portraitImage": "portrait-placeholder.png",
+      "portraitAlt": "Pixel art portrait placeholder of Lincoln Riley wearing a headset",
       "portraitBackgroundColor": "#d14c2d",
       "stats": [
         { "label": "CLASS", "value": "-" },
@@ -48,18 +47,17 @@
       "name": "Jayden Maiava",
       "role": "Quarterback",
       "teamName": "USC Trojans",
-      "portraitImage": "lincoln-riley.png",
-      "portraitAlt": "Pixel art portrait of Jayden Maiava in USC uniform",
+      "portraitImage": "portrait-placeholder.png",
+      "portraitAlt": "Pixel art portrait placeholder of Jayden Maiava",
       "portraitBackgroundColor": "#d14c2d",
       "stats": [
-        { "label": "CLASS", "value": "R-SO" },
-        { "label": "HT / WT", "value": "6-4 / 220" },
-        { "label": "HOMETOWN", "value": "Honolulu, HI" },
-        { "label": "PREVIOUS", "value": "UNLV" }
+        { "label": "CLASS", "value": "-" },
+        { "label": "HT / WT", "value": "-" },
+        { "label": "HOMETOWN", "value": "-" },
+        { "label": "PREVIOUS", "value": "-" }
       ],
       "report": [
-        "Dynamic dual-threat signal caller with exceptional arm strength and poise in pocket situations under pressure.",
-        "Stepped into the starting role after transferring from UNLV, demonstrating explosive playmaking capability downfield."
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       ]
     },
     {
@@ -67,17 +65,16 @@
       "name": "DeShaun Foster",
       "role": "Head Coach",
       "teamName": "UCLA Bruins",
-      "portraitImage": "lincoln-riley.png",
-      "portraitAlt": "Pixel art portrait of UCLA Bruins Head Coach DeShaun Foster",
+      "portraitImage": "portrait-placeholder.png",
+      "portraitAlt": "Pixel art portrait placeholder of DeShaun Foster",
       "portraitBackgroundColor": "#005587",
       "stats": [
-        { "label": "ROLE", "value": "Head Coach" },
-        { "label": "ALMA MATER", "value": "UCLA" },
-        { "label": "RECORD", "value": "First Season" }
+        { "label": "ROLE", "value": "-" },
+        { "label": "ALMA MATER", "value": "-" },
+        { "label": "RECORD", "value": "-" }
       ],
       "report": [
-        "Former UCLA star running back returned to Westwood to take over the Bruins program in their inaugural Big Ten season.",
-        "Emphasizes discipline, physicality, and maintaining Bruin culture across all phases of the rivalry."
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       ]
     }
   ]

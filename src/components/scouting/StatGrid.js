@@ -9,10 +9,12 @@ const GridContainer = styled.section`
   gap: 12px;
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 16px;
 
   ${mediaQueries.mobile} {
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 14px;
   }
 `;
 

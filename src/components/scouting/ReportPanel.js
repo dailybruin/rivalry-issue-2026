@@ -4,7 +4,7 @@ import { colors, fonts, mediaQueries } from '../../shared/config';
 
 const PanelOuter = styled.section`
   background-color: ${colors.reportBackground};
-  padding: 8px;
+  padding: 6px;
   box-sizing: border-box;
   width: 100%;
   border-radius: 0;
@@ -13,11 +13,11 @@ const PanelOuter = styled.section`
 
 const PanelInner = styled.div`
   border: 1px solid ${colors.panelBackground};
-  padding: 22px 24px;
+  padding: 18px 22px;
   box-sizing: border-box;
 
   ${mediaQueries.mobile} {
-    padding: 16px;
+    padding: 14px 16px;
   }
 `;
 
@@ -28,20 +28,20 @@ const ReportHeading = styled.h3`
   color: ${colors.reportLabel};
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin: 0 0 16px 0;
+  margin: 0 0 14px 0;
 
   ${mediaQueries.mobile} {
     font-size: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 `;
 
 const ReportParagraph = styled.p`
   font-family: ${fonts.body};
-  font-size: 13.5px;
-  line-height: 1.65;
+  font-size: 13px;
+  line-height: 1.62;
   color: ${colors.reportText};
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
   text-align: left;
 
   &:last-child {
@@ -50,8 +50,8 @@ const ReportParagraph = styled.p`
 
   ${mediaQueries.mobile} {
     font-size: 12px;
-    line-height: 1.6;
-    margin-bottom: 12px;
+    line-height: 1.55;
+    margin-bottom: 10px;
   }
 `;
 
@@ -65,7 +65,7 @@ const ReportPanel = ({ label = 'The Report', paragraphs = [] }) => {
             <ReportParagraph key={index}>{para}</ReportParagraph>
           ))
         ) : (
-          <ReportParagraph>Report pending.</ReportParagraph>
+          <ReportParagraph>Lorem ipsum dolor sit amet.</ReportParagraph>
         )}
       </PanelInner>
     </PanelOuter>

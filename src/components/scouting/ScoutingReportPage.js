@@ -13,30 +13,33 @@ const PageWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
-  padding: 32px 36px 40px;
+  padding: 24px 32px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   ${mediaQueries.tablet} {
-    padding: 24px 20px 32px;
+    padding: 20px 18px;
+    justify-content: flex-start;
   }
 
   ${mediaQueries.mobile} {
     padding: 16px 14px 24px;
+    justify-content: flex-start;
   }
 `;
 
 const ContentContainer = styled.main`
   width: 100%;
-  max-width: 1240px;
+  max-width: 1060px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 
   ${mediaQueries.mobile} {
-    gap: 18px;
+    gap: 16px;
   }
 `;
 
@@ -114,13 +117,13 @@ const CounterBadge = styled.div`
 
 const MainGrid = styled.section`
   display: grid;
-  grid-template-columns: minmax(300px, 380px) 1fr;
-  gap: 32px;
+  grid-template-columns: 336px 1fr;
+  gap: 28px;
   align-items: start;
   width: 100%;
 
   ${mediaQueries.tablet} {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 300px 1fr;
     gap: 20px;
   }
 
@@ -133,13 +136,12 @@ const MainGrid = styled.section`
 const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14px;
   width: 100%;
 `;
 
 const PlayerName = styled.h2`
   font-family: ${fonts.pixel};
-  font-size: 32px;
+  font-size: 30px;
   line-height: 1.15;
   color: ${colors.textLight};
   text-transform: uppercase;
@@ -147,7 +149,7 @@ const PlayerName = styled.h2`
   margin: 0;
 
   ${mediaQueries.tablet} {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   ${mediaQueries.mobile} {
@@ -157,15 +159,17 @@ const PlayerName = styled.h2`
 
 const PlayerRole = styled.div`
   font-family: ${fonts.pixel};
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.2;
   color: ${colors.accentGold};
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-top: -2px;
+  margin-top: 6px;
+  margin-bottom: 14px;
 
   ${mediaQueries.mobile} {
-    font-size: 12px;
+    font-size: 11px;
+    margin-bottom: 12px;
   }
 `;
 
@@ -175,7 +179,6 @@ const BottomNav = styled.footer`
   align-items: center;
   width: 100%;
   gap: 16px;
-  margin-top: 6px;
 
   ${mediaQueries.mobile} {
     flex-direction: column;
@@ -192,11 +195,10 @@ const ScoutingReportPage = ({
     reportLabel = 'The Report',
     backButtonLabel = 'Back to Draft',
     backButtonHref = null,
-    cardCounterFormat = 'Card {current}/{total}',
+    cardCounterFormat = 'CARD {current}/{total}',
     cards = []
   } = data || {};
 
-  // Find index of sample card or default to 0
   const findInitialIndex = () => {
     if (typeof initialCardIndex === 'number' && initialCardIndex >= 0 && initialCardIndex < cards.length) {
       return initialCardIndex;
@@ -210,7 +212,6 @@ const ScoutingReportPage = ({
   const total = cards.length;
   const currentCard = total > 0 ? cards[currentIndex] : null;
 
-  // Derive previous and next from array order with wrap-around
   const prevIndex = total > 0 ? (currentIndex - 1 + total) % total : 0;
   const nextIndex = total > 0 ? (currentIndex + 1) % total : 0;
   const prevCard = total > 0 ? cards[prevIndex] : null;
@@ -226,7 +227,6 @@ const ScoutingReportPage = ({
     setCurrentIndex(idx => (idx + 1) % total);
   }, [total]);
 
-  // Keyboard navigation: left and right arrows
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {

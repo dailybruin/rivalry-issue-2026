@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, fonts, mediaQueries } from '../../shared/config';
-import lincolnRileyFallback from '../../images/lincoln-riley.png';
+import placeholderFallback from '../../images/portrait-placeholder.png';
 
 const Frame = styled.div`
   border: 6px solid ${colors.borderLight};
@@ -12,7 +12,7 @@ const Frame = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  aspect-ratio: 336 / 420;
+  aspect-ratio: 326 / 395;
   box-sizing: border-box;
   overflow: hidden;
   border-radius: 0;
@@ -20,7 +20,7 @@ const Frame = styled.div`
 
   ${mediaQueries.mobile} {
     border-width: 4px;
-    max-width: 340px;
+    max-width: 320px;
     margin: 0 auto;
   }
 `;
@@ -47,10 +47,11 @@ const PixelImage = styled.img`
 `;
 
 const CaptionBar = styled.div`
-  position: relative;
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
   z-index: 2;
-  width: calc(100% - 32px);
-  margin-bottom: 16px;
   background-color: ${colors.panelBackground};
   color: ${colors.accentGold};
   font-family: ${fonts.pixel};
@@ -59,26 +60,27 @@ const CaptionBar = styled.div`
   letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
-  padding: 8px 12px;
+  padding: 8px 10px;
   box-sizing: border-box;
   border-radius: 0;
   border: 1px solid ${colors.panelBackground};
 
   ${mediaQueries.mobile} {
     font-size: 11px;
-    width: calc(100% - 20px);
-    margin-bottom: 10px;
-    padding: 6px 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 6px 8px;
   }
 `;
 
 const resolvePortraitImage = (filename) => {
-  if (!filename) return lincolnRileyFallback;
+  if (!filename) return placeholderFallback;
   try {
     const asset = require(`../../images/${filename}`);
     return asset.default || asset;
   } catch (err) {
-    return lincolnRileyFallback;
+    return placeholderFallback;
   }
 };
 
