@@ -1,17 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .landing-page {
-  --rd-bg: #0b4fd8;
-  --rd-navy: #0a1445;
+  --rd-bg: #2f56d9;
+  --rd-pill: #1e3ba8;
   --rd-white: #ffffff;
-  --rd-gold: #ffc72c;
-  --rd-font-title: 'Press Start 2P', 'Courier New', monospace;
-  --rd-font-ui: 'Silkscreen', 'Courier New', monospace;
+  --rd-subtitle: #cfe0ff;
+  --rd-font: 'Press Start 2P', 'Courier New', monospace;
 
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
   box-sizing: border-box;
-  max-width: 1360px;
+  max-width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 24px;
+  padding: 40px;
   background: var(--rd-bg);
+  font-family: var(--rd-font);
+}
+
+@media (max-width: 1024px) {
+  .landing-page {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-page {
+    padding: 16px;
+  }
 }
