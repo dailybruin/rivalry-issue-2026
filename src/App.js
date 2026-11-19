@@ -1,21 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScoutingReport from './components/ScoutingReport';
+import { players } from './data/players';
+import { useHash } from './shared/hooks';
 
 function App() {
-  const [ data, setData ] = useState(null);
-  
-  useEffect(() => {
-		fetch("<TODO: insert api url here>")
-		.then(res => res.json())
-		.then(res => setData(res.data['article.aml']))
-  }, [])
+  const hash = useHash();
+  const playerId = hash.match(/^#\/players\/([\w-]+)/)?.[1];
+  // TODO: render the draft board (landing page) when no player is selected.
+  const index = Math.max(0, players.findIndex((player) => player.id === playerId));
+  const player = players[index];
 
-  return data && (
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [player.id]);
+
+  return (
     <div className="App">
       <Header/>
-      Hello Daily Bruin!
+      <ScoutingReport
+        player={player}
+        card={index + 1}
+        total={players.length}
+        prev={players[(index - 1 + players.length) % players.length]}
+        next={players[(index + 1) % players.length]}
+      />
       <Footer/>
     </div>
   );
