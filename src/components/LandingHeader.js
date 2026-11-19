@@ -1,3 +1,4 @@
+import PixelStar from './PixelStar';
 import './LandingHeader.css';
 
 function LandingHeader({
@@ -11,9 +12,9 @@ function LandingHeader({
       <div className="landing-header__bar">
         <span className="landing-header__tag">{publication}</span>
         <h1 className="landing-header__title">
-          <span aria-hidden="true">★ </span>
+          <PixelStar />
           {title}
-          <span aria-hidden="true"> ★</span>
+          <PixelStar />
         </h1>
         <span className="landing-header__tag">{edition}</span>
       </div>

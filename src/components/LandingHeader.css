@@ -28,6 +28,10 @@
 }
 
 .landing-header__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
   margin: 0;
   font-size: 34px;
   font-weight: 400;
@@ -37,6 +41,12 @@
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.pixel-star {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
 }
 
 .landing-header__subtitle {
