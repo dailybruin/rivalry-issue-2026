@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+
+.landing-page {
+  --rd-bg: #0b4fd8;
+  --rd-navy: #0a1445;
+  --rd-white: #ffffff;
+  --rd-gold: #ffc72c;
+  --rd-font-title: 'Press Start 2P', 'Courier New', monospace;
+  --rd-font-ui: 'Silkscreen', 'Courier New', monospace;
+
+  box-sizing: border-box;
+  max-width: 1360px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px;
+  background: var(--rd-bg);
+}
