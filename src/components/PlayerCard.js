@@ -14,8 +14,8 @@ const POSITION_ABBR = {
 const abbreviate = (position) =>
   POSITION_ABBR[position] ?? position.split(' ').map((word) => word[0]).join('').toUpperCase();
 
-// The whole card is one link, so any click on it opens the scouting report.
-// ponytail: minimal thumbnail so the draft board renders; the Player Thumbnail Card task can restyle it.
+// Draft board thumbnail (Figma "Card / <player>"). The whole card is one link so a click
+// anywhere on it opens that player's scouting report.
 function PlayerCard({ player }) {
   return (
     <a
