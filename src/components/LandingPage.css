@@ -24,7 +24,8 @@
   align-items: center;
   gap: 12px;
   align-self: center;
-  padding: 10px 14px;
+  /* Figma "Footer" button: 16/20 padding, 4px border, #1E3BA8 fill, #FFD100 12px text. */
+  padding: 16px 20px;
   border: 4px solid var(--rd-white);
   background: var(--rd-pill);
   color: #ffd100;

@@ -23,9 +23,9 @@ function PlayerCard({ player }) {
       href={playerHref(player)}
       aria-label={`Open scouting report: ${player.name}`}
     >
-      <span className="player-card__badge">{abbreviate(player.position)}</span>
-      <span className="player-card__number">
-        {player.number != null ? `#${player.number}` : 'Coach'}
+      <span className="player-card__top">
+        <span className="player-card__badge">{abbreviate(player.position)}</span>
+        <span>{player.number != null ? `#${player.number}` : 'Coach'}</span>
       </span>
       <img className="player-card__image" src={player.image} alt="" />
       <span className="player-card__name">{player.name}</span>

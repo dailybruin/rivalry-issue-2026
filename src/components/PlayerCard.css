@@ -1,14 +1,15 @@
-/* Draft board thumbnail, following the "Landing Page" frame in the Figma. */
+/* Draft board thumbnail. Values follow the "Card / <player>" components in the Figma Landing Page frame
+   (256 x 348 at 1440px: 4px border, 10px padding, 8px gap, 30px top row, 228 x 234 portrait, 40px name bar). */
 
 .player-card {
-  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 8px;
   box-sizing: border-box;
-  padding: 8px;
-  border: 4px solid var(--rd-white);
+  padding: 10px;
+  border: 4px solid #ffffff;
   background: var(--card-bg);
-  color: var(--rd-white);
+  color: #ffffff;
   text-decoration: none;
   transition: transform 120ms ease-out;
 }
@@ -30,49 +31,67 @@
   outline-offset: 3px;
 }
 
-.player-card__badge,
-.player-card__number {
-  position: absolute;
-  top: 8px;
-  z-index: 1;
-  font-size: 10px;
+.player-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 30px;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  font-size: 12px;
   line-height: 1;
   text-transform: uppercase;
 }
 
 .player-card__badge {
-  left: 8px;
-  padding: 4px 6px;
-  border: 2px solid #0e1433;
-  background: var(--rd-white);
+  padding: 6px 8px;
+  border: 3px solid #0e1433;
+  background: #ffffff;
   color: #0e1433;
-}
-
-.player-card__number {
-  right: 8px;
-  padding-top: 6px;
 }
 
 .player-card__image {
   display: block;
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  object-position: top;
+  aspect-ratio: 228 / 234;
+  object-fit: contain;
+  object-position: bottom;
 }
 
 .player-card__name {
-  padding: 8px 4px;
+  padding: 8px;
   background: #0e1433;
-  font-size: 10px;
-  line-height: 1.3;
+  font-family: 'Pixelify Sans', 'Courier New', monospace;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
   text-align: center;
 }
 
-@media (max-width: 480px) {
-  .player-card__badge,
-  .player-card__number,
+@media (max-width: 1024px) {
   .player-card__name {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .player-card {
+    padding: 6px;
+    gap: 6px;
+    border-width: 3px;
+  }
+
+  .player-card__top {
+    min-height: 24px;
     font-size: 8px;
+  }
+
+  .player-card__badge {
+    padding: 4px 5px;
+    border-width: 2px;
+  }
+
+  .player-card__name {
+    padding: 6px 4px;
+    font-size: 12px;
   }
 }
