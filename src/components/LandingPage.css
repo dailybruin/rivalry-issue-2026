@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* The default subsets leave out ▶ (U+25B6); this adds just that glyph so Press Start's arrow matches the Figma. */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&text=%E2%96%B6&display=swap');
 
 .landing-page {
   --rd-bg: #2f56d9;
@@ -20,11 +22,8 @@
 }
 
 .landing-page__start {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
   align-self: center;
-  /* Figma "Footer" button: 16/20 padding, 4px border, #1E3BA8 fill, #FFD100 12px text. */
+  /* Figma "Footer" button: 204 x 52, 16/20 padding, 4px border, #1E3BA8 fill, #FFD100 12px text. */
   padding: 16px 20px;
   border: 4px solid var(--rd-white);
   background: var(--rd-pill);
@@ -33,6 +32,8 @@
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .landing-page__start:hover {

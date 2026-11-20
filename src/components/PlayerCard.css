@@ -11,7 +11,7 @@
   background: var(--card-bg);
   color: #ffffff;
   text-decoration: none;
-  transition: transform 120ms ease-out;
+  cursor: pointer; /* explicit: WebKit leaves links at cursor: auto */
 }
 
 .player-card--ucla {
@@ -20,10 +20,6 @@
 
 .player-card--usc {
   --card-bg: #d04c2e;
-}
-
-.player-card:hover {
-  transform: translateY(-4px);
 }
 
 .player-card:focus-visible {
@@ -53,8 +49,7 @@
   display: block;
   width: 100%;
   aspect-ratio: 228 / 234;
-  object-fit: contain;
-  object-position: bottom;
+  object-fit: contain; /* Figma: scale "Fit" (centered) */
 }
 
 .player-card__name {

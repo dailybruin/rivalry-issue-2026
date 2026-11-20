@@ -1,6 +1,5 @@
 import LandingHeader from './LandingHeader';
 import DraftBoard from './DraftBoard';
-import PixelArrow from './PixelArrow';
 import './LandingPage.css';
 
 function LandingPage({ teams, startHref }) {
@@ -9,8 +8,8 @@ function LandingPage({ teams, startHref }) {
       <LandingHeader />
       <DraftBoard teams={teams} />
       <a className="landing-page__start" href={startHref}>
-        Press start
-        <PixelArrow direction="right" />
+        {/* Figma sets the ▶ in Press Start 2P itself. U+FE0E forces text (not emoji) presentation on iOS. */}
+        Press start <span aria-hidden="true">{'▶︎'}</span>
       </a>
     </main>
   );
