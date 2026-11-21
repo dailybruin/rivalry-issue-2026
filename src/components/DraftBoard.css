@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px; /* Figma team section gap */
   width: 100%;
 }
 
@@ -39,7 +39,7 @@
 .team-row__cards {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 22px;
+  gap: 20px; /* Figma "Cards" gap: 5 x 256 + 4 x 20 = 1360 */
   width: 100%;
 }
 
