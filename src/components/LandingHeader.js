@@ -3,6 +3,7 @@ import './LandingHeader.css';
 
 function LandingHeader({
   publication = 'Daily Bruin',
+  publicationHref = 'https://dailybruin.com',
   title = 'Rivalry Draft',
   edition = 'UCLA vs USC 2026',
   subtitle = 'Crosstown showdown · Select a card to open the scouting report',
@@ -10,7 +11,9 @@ function LandingHeader({
   return (
     <header className="landing-header">
       <div className="landing-header__bar">
-        <span className="landing-header__tag">{publication}</span>
+        <a className="landing-header__tag landing-header__tag--link" href={publicationHref}>
+          {publication}
+        </a>
         <h1 className="landing-header__title">
           <PixelStar />
           {title}
