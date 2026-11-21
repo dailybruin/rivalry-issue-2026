@@ -1,101 +1,52 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import App from './App';
 import ScoutingReportPage from './components/scouting/ScoutingReportPage';
 
-const fixtureData = {
-  headerTitle: 'Scouting Report Test',
-  reportLabel: 'The Test Report',
-  backButtonLabel: 'Back Test',
-  cardCounterFormat: 'CARD {current}/{total}',
-  cards: [
-    {
-      id: 'player-alpha',
-      name: 'Alpha Player',
-      role: 'Starter',
-      teamName: 'Alpha Team',
-      portraitImage: 'lincoln-riley.png',
-      portraitAlt: 'Alpha portrait',
-      portraitBackgroundColor: '#d14c2d',
-      stats: [
-        { label: 'CLASS', value: 'FR' },
-        { label: 'HOMETOWN', value: 'Los Angeles, CA' }
-      ],
-      report: ['Alpha report paragraph one.', 'Alpha report paragraph two.']
-    },
-    {
-      id: 'player-beta',
-      name: 'Beta Player',
-      role: 'Reserve',
-      teamName: 'Beta Team',
-      portraitImage: 'lincoln-riley.png',
-      portraitAlt: 'Beta portrait',
-      portraitBackgroundColor: '#005587',
-      stats: [
-        { label: 'ROLE', value: 'Specialist' }
-      ],
-      report: ['Beta report paragraph.']
-    }
-  ]
+// jsdom doesn't implement scrolling.
+beforeAll(() => {
+  window.scrollTo = jest.fn();
+});
+
+const renderAt = (hash) => {
+  window.location.hash = hash;
+  return render(<App />);
 };
 
-test('renders App smoke test with default data without crashing', () => {
-  render(<App />);
-  expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+test.each(['', '#/', '#/players/not-a-player'])('hash %p renders the draft board', (hash) => {
+  renderAt(hash);
+  expect(screen.getByText(/rivalry draft/i)).toBeInTheDocument();
+  expect(screen.queryByText(/back to draft/i)).not.toBeInTheDocument();
 });
 
-test('renders initial card from fixture data', () => {
-  render(<ScoutingReportPage data={fixtureData} />);
-  expect(screen.getByRole('heading', { level: 1, name: /scouting report test/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { level: 2, name: /alpha player/i })).toBeInTheDocument();
-  expect(screen.getByText('Starter')).toBeInTheDocument();
-  expect(screen.getByText('Alpha Team')).toBeInTheDocument();
-  expect(screen.getByText('The Test Report')).toBeInTheDocument();
-  expect(screen.getByText('CARD 1/2')).toBeInTheDocument();
-  expect(screen.getByText('Alpha report paragraph one.')).toBeInTheDocument();
-  expect(screen.getByText('Los Angeles, CA')).toBeInTheDocument();
+test('press start goes to Bob Chesney', () => {
+  renderAt('#/');
+  expect(screen.getByText(/press start/i).closest('a')).toHaveAttribute('href', '#/players/bob-chesney');
 });
 
-test('navigates to next card using fixture data', () => {
-  render(<ScoutingReportPage data={fixtureData} />);
-  const nextButton = screen.getByRole('button', { name: /next card: beta player/i });
-  expect(nextButton).toBeInTheDocument();
-
-  fireEvent.click(nextButton);
-
-  expect(screen.getByRole('heading', { level: 2, name: /beta player/i })).toBeInTheDocument();
-  expect(screen.getByText('Reserve')).toBeInTheDocument();
-  expect(screen.getByText('CARD 2/2')).toBeInTheDocument();
+test('every draft card is a single link to its report', () => {
+  renderAt('#/');
+  const card = screen.getByRole('link', { name: /open scouting report: luke wafle/i });
+  expect(card).toHaveAttribute('href', '#/players/luke-wafle');
+  expect(card).toContainElement(screen.getByText('Luke Wafle'));
+  expect(screen.getAllByRole('link', { name: /open scouting report/i })).toHaveLength(10);
 });
 
-test('navigates to previous card (wraps around) using fixture data', () => {
-  render(<ScoutingReportPage data={fixtureData} />);
-  const prevButton = screen.getByRole('button', { name: /previous card: beta player/i });
-  expect(prevButton).toBeInTheDocument();
-
-  fireEvent.click(prevButton);
-
-  expect(screen.getByRole('heading', { level: 2, name: /beta player/i })).toBeInTheDocument();
-  expect(screen.getByText('CARD 2/2')).toBeInTheDocument();
+test.each([
+  ['#/players/luke-wafle', 'Card 10/10', '#/players/trent-mosley', '#/players/bob-chesney'],
+  ['#/players/bob-chesney', 'Card 1/10', '#/players/luke-wafle', '#/players/ty-dieffenbach'],
+])('%s pager wraps around', (hash, count, prevHref, nextHref) => {
+  renderAt(hash);
+  expect(screen.getByText(count)).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: /previous report/i })).toHaveAttribute('href', prevHref);
+  expect(screen.getByRole('link', { name: /next report/i })).toHaveAttribute('href', nextHref);
+  expect(screen.getByText(/back to draft/i).closest('a')).toHaveAttribute('href', '#/');
 });
 
-test('supports arrow key navigation on fixture data', () => {
-  render(<ScoutingReportPage data={fixtureData} />);
-  expect(screen.getByRole('heading', { level: 2, name: /alpha player/i })).toBeInTheDocument();
-
-  fireEvent.keyDown(window, { key: 'ArrowRight' });
-  expect(screen.getByRole('heading', { level: 2, name: /beta player/i })).toBeInTheDocument();
-
-  fireEvent.keyDown(window, { key: 'ArrowLeft' });
-  expect(screen.getByRole('heading', { level: 2, name: /alpha player/i })).toBeInTheDocument();
-});
-
-test('handles empty report gracefully without rendering filler text', () => {
-  const noReportData = {
-    ...fixtureData,
-    cards: [{ ...fixtureData.cards[0], report: [] }]
-  };
-  render(<ScoutingReportPage data={noReportData} />);
-  expect(screen.queryByText(/the test report/i)).not.toBeInTheDocument();
-  expect(screen.queryByText(/lorem/i)).not.toBeInTheDocument();
+test('hash changes switch pages without reloading', () => {
+  renderAt('#/');
+  act(() => {
+    window.location.hash = '#/players/king-miller';
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
+  });
+  expect(screen.getByRole('heading', { level: 1, name: 'King Miller' })).toBeInTheDocument();
 });

@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Press+Start+2P&display=swap');
+
+/* Values follow the "Player Page" frames in the Rivalry Issue Flatpage Figma (1440px wide). */
+
+.scouting-report {
+  --sr-white: #ffffff;
+  --sr-ink: #0e1433;
+  --sr-font: 'Press Start 2P', 'Courier New', monospace;
+  --sr-body-font: 'Pixelify Sans', 'Courier New', monospace;
+  --sr-gutter: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-sizing: border-box;
+  /* Full-bleed background, content capped at the 1360px Figma content width. */
+  padding: var(--sr-gutter) max(var(--sr-gutter), calc((100% - 1360px) / 2));
+  background: var(--sr-bg);
+  color: var(--sr-white);
+  font-family: var(--sr-font);
+  text-align: left;
+}
+
+.scouting-report *,
+.scouting-report *::before,
+.scouting-report *::after {
+  box-sizing: border-box;
+}
+
+.scouting-report--ucla {
+  --sr-bg: #1b4f8a;
+  --sr-card: #6cc5d6;
+  --sr-accent: #ffd100;
+  --sr-team: #2774ae;
+}
+
+.scouting-report--usc {
+  --sr-bg: #6e0a0a;
+  --sr-card: #d04c2e;
+  --sr-accent: #ffc72c;
+  --sr-team: #990000;
+}
+
+/* Pills: back, card count, prev, next */
+
+.scouting-report__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 4px solid var(--sr-white);
+  background: var(--sr-ink);
+  color: var(--sr-white);
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+a.scouting-report__pill {
+  transition: background-color 120ms ease-out, color 120ms ease-out;
+}
+
+a.scouting-report__pill:hover {
+  background: var(--sr-accent);
+  color: var(--sr-ink);
+}
+
+a.scouting-report__pill:focus-visible {
+  outline: 3px solid var(--sr-accent);
+  outline-offset: 3px;
+}
+
+.pixel-arrow {
+  width: 0.7em;
+  height: 0.98em;
+  flex-shrink: 0;
+}
+
+.pixel-arrow--left {
+  transform: scaleX(-1);
+}
+
+/* Header */
+
+.scouting-report__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.scouting-report__back {
+  grid-area: back;
+  justify-self: start;
+}
+
+.scouting-report__count {
+  grid-area: count;
+  justify-self: end;
+  color: var(--sr-accent);
+}
+
+.scouting-report__title {
+  grid-area: title;
+  margin: 0;
+  font-size: clamp(16px, 2.2vw, 26px);
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Body: portrait card on the left, everything else stacked on the right */
+
+.scouting-report__body {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas:
+    'card name'
+    'card role'
+    'card stats'
+    'card blurb';
+  align-items: start;
+  gap: 20px 40px;
+}
+
+.scouting-report__name {
+  grid-area: name;
+  margin: 0;
+  font-size: clamp(22px, 3.4vw, 34px);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.scouting-report__role {
+  grid-area: role;
+  margin: 0;
+  color: var(--sr-accent);
+  font-size: 16px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.scouting-report__card {
+  grid-area: card;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 16px;
+  border: 6px solid var(--sr-white);
+  background: var(--sr-card);
+}
+
+.scouting-report__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 448 / 485;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.scouting-report__team {
+  padding: 12px 10px;
+  background: var(--sr-ink);
+  color: var(--sr-accent);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.scouting-report__stats {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.scouting-report__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 3px solid var(--sr-white);
+  background: var(--sr-ink);
+}
+
+.scouting-report__stat dt {
+  color: var(--sr-accent);
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.scouting-report__stat dd {
+  margin: 0;
+  font-family: var(--sr-body-font);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.scouting-report__blurb {
+  grid-area: blurb;
+  padding: 24px;
+  border: 4px solid var(--sr-ink);
+  background: var(--sr-white);
+  color: var(--sr-ink);
+}
+
+.scouting-report__blurb h2 {
+  margin: 0 0 14px;
+  color: var(--sr-team);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.scouting-report__blurb p {
+  margin: 0;
+  font-family: var(--sr-body-font);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.scouting-report__blurb p + p {
+  margin-top: 0.7em;
+}
+
+/* Footer nav */
+
+.scouting-report__pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.scouting-report__pager .scouting-report__pill {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .scouting-report {
+    --sr-gutter: 24px;
+  }
+
+  .scouting-report__body {
+    column-gap: 32px;
+  }
+
+  .scouting-report__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: one column — name first, then the card, stats, report and pager. */
+
+@media (max-width: 768px) {
+  .scouting-report {
+    gap: 20px;
+  }
+
+  .scouting-report__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'back  count'
+      'title title';
+    row-gap: 20px;
+  }
+
+  .scouting-report__title {
+    margin-bottom: -8px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .scouting-report__body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas:
+      'name'
+      'role'
+      'card'
+      'stats'
+      'blurb';
+    row-gap: 16px;
+  }
+
+  .scouting-report__name {
+    font-size: clamp(20px, 6vw, 30px);
+    line-height: 1.3;
+  }
+
+  .scouting-report__role {
+    margin-top: -4px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .scouting-report__card {
+    justify-self: center;
+    width: min(100%, 400px);
+    margin-top: 4px;
+    padding: 12px;
+    gap: 10px;
+    border-width: 5px;
+  }
+
+  .scouting-report__stats {
+    gap: 10px;
+  }
+
+  .scouting-report__blurb {
+    padding: 20px 18px;
+  }
+
+  .scouting-report__blurb p {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .scouting-report__pager {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .scouting-report__pager .scouting-report__pill {
+    min-height: 56px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .scouting-report__next {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}
+
+@media (max-width: 480px) {
+  .scouting-report {
+    --sr-gutter: 16px;
+  }
+
+  .scouting-report__pill {
+    min-height: 44px;
+    padding: 8px 10px;
+    border-width: 3px;
+    font-size: 10px;
+    gap: 8px;
+  }
+
+  .scouting-report__pager .scouting-report__pill {
+    padding: 8px 10px;
+  }
+
+  .scouting-report__title {
+    font-size: 13px;
+  }
+
+  .scouting-report__role {
+    font-size: 12px;
+  }
+
+  .scouting-report__team {
+    font-size: 12px;
+  }
+
+  .scouting-report__stat {
+    padding: 10px;
+  }
+
+  .scouting-report__stat dt {
+    font-size: 8px;
+  }
+
+  .scouting-report__stat dd {
+    font-size: 18px;
+  }
+
+  .scouting-report__blurb {
+    padding: 16px 14px;
+  }
+
+  .scouting-report__blurb h2 {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.scouting-report__pill {
+    transition: none;
+  }
+}

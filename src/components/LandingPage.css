@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* The default subsets leave out ▶ (U+25B6); this adds just that glyph so Press Start's arrow matches the Figma. */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&text=%E2%96%B6&display=swap');
+
+.landing-page {
+  --rd-bg: #2f56d9;
+  --rd-pill: #1e3ba8;
+  --rd-white: #ffffff;
+  --rd-subtitle: #cfe0ff;
+  --rd-font: 'Press Start 2P', 'Courier New', monospace;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-sizing: border-box;
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--rd-bg);
+  font-family: var(--rd-font);
+}
+
+.landing-page__start {
+  align-self: center;
+  /* Figma "Footer" button: 204 x 52, 16/20 padding, 4px border, #1E3BA8 fill, #FFD100 12px text. */
+  padding: 16px 20px;
+  border: 4px solid var(--rd-white);
+  background: var(--rd-pill);
+  color: #ffd100;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.landing-page__start:hover {
+  background: #ffd100;
+  color: var(--rd-pill);
+}
+
+.landing-page__start:focus-visible {
+  outline: 3px solid #ffd100;
+  outline-offset: 3px;
+}
+
+@media (max-width: 1024px) {
+  .landing-page {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-page {
+    padding: 16px;
+  }
+}

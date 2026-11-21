@@ -22,3 +22,18 @@ export function useWindowDimensions() {
 
   return windowDimensions;
 }
+
+export function useHash() {
+  const [hash, setHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    function handleHashChange() {
+      setHash(window.location.hash);
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  return hash;
+}
