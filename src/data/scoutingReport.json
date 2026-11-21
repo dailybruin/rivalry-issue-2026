@@ -1,0 +1,81 @@
+{
+  "headerTitle": "Scouting Report",
+  "reportLabel": "The Report",
+  "backButtonLabel": "Back to Draft",
+  "backButtonHref": null,
+  "cardCounterFormat": "CARD {current}/{total}",
+  "cards": [
+    {
+      "id": "lincoln-riley-sample",
+      "_note": "Sample card matching design mockup. Editorial copy and final stats pending.",
+      "name": "Lincoln Riley",
+      "role": "Head Coach",
+      "teamName": "USC Trojans",
+      "portraitImage": "lincoln-riley.png",
+      "portraitAlt": "Pixel art portrait of Lincoln Riley wearing a headset",
+      "portraitBackgroundColor": "#d14c2d",
+      "stats": [
+        { "label": "CLASS", "value": "-" },
+        { "label": "HT / WT", "value": "-" },
+        { "label": "HOMETOWN", "value": "-" },
+        { "label": "PREVIOUS", "value": "-" }
+      ],
+      "report": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      ]
+    },
+    {
+      "id": "jayden-maiava",
+      "name": "Jayden Maiava",
+      "role": "Quarterback",
+      "teamName": "USC Trojans",
+      "portraitImage": "lincoln-riley.png",
+      "portraitAlt": "Pixel art portrait of Jayden Maiava",
+      "portraitBackgroundColor": "#d14c2d",
+      "stats": [
+        { "label": "CLASS", "value": "-" },
+        { "label": "HT / WT", "value": "-" },
+        { "label": "HOMETOWN", "value": "-" },
+        { "label": "PREVIOUS", "value": "-" }
+      ],
+      "report": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      ]
+    },
+    {
+      "id": "deshaun-foster",
+      "name": "DeShaun Foster",
+      "role": "Head Coach",
+      "teamName": "UCLA Bruins",
+      "portraitImage": "lincoln-riley.png",
+      "portraitAlt": "Pixel art portrait of DeShaun Foster",
+      "portraitBackgroundColor": "#005587",
+      "stats": [
+        { "label": "ROLE", "value": "-" },
+        { "label": "ALMA MATER", "value": "-" },
+        { "label": "RECORD", "value": "-" }
+      ],
+      "report": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      ]
+    },
+    {
+      "id": "sammy-omosigho",
+      "name": "Sammy Omosigho",
+      "role": "Linebacker",
+      "teamName": "USC Trojans",
+      "portraitImage": "lincoln-riley.png",
+      "portraitAlt": "Pixel art portrait of Sammy Omosigho",
+      "portraitBackgroundColor": "#d14c2d",
+      "stats": [
+        { "label": "CLASS", "value": "-" },
+        { "label": "HT / WT", "value": "-" },
+        { "label": "HOMETOWN", "value": "-" },
+        { "label": "PREVIOUS", "value": "-" }
+      ],
+      "report": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      ]
+    }
+  ]
+}

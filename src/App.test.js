@@ -1,5 +1,6 @@
 import { render, screen, act } from '@testing-library/react';
 import App from './App';
+import ScoutingReportPage from './components/scouting/ScoutingReportPage';
 
 // jsdom doesn't implement scrolling.
 beforeAll(() => {
