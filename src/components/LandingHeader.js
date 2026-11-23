@@ -4,7 +4,7 @@ import './LandingHeader.css';
 function LandingHeader({
   publication = 'Daily Bruin',
   publicationHref = 'https://dailybruin.com',
-  title = 'Rivalry Draft',
+  title = 'Rivalry Game',
   edition = 'UCLA vs USC 2026',
   subtitle = 'Crosstown showdown · Select a card to open the scouting report',
 }) {

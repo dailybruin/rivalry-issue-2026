@@ -116,7 +116,7 @@ a.scouting-report__pill:focus-visible {
 
 .scouting-report__body {
   display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); /* was 4fr / 7fr */
   grid-template-rows: auto auto auto 1fr;
   grid-template-areas:
     'card name'
@@ -151,7 +151,7 @@ a.scouting-report__pill:focus-visible {
   flex-direction: column;
   gap: 12px;
   margin: 0;
-  padding: 16px;
+  padding: 12px; /* was 16px */
   border: 6px solid var(--sr-white);
   background: var(--sr-card);
 }
@@ -161,11 +161,15 @@ a.scouting-report__pill:focus-visible {
   width: 100%;
   height: auto;
   aspect-ratio: 448 / 485;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center bottom;
+  /* The art has transparent space below the figure. Pull the team bar up over it so the player
+     sits on the bar. Tune this one number: more negative = player sits lower. */
+  margin-bottom: -20%;
 }
 
 .scouting-report__team {
+  position: relative; /* draws over the image's transparent bottom padding */
   padding: 12px 10px;
   background: var(--sr-ink);
   color: var(--sr-accent);
@@ -312,7 +316,7 @@ a.scouting-report__pill:focus-visible {
 
   .scouting-report__card {
     justify-self: center;
-    width: min(100%, 400px);
+    width: 100%; /* was min(100%, 400px) */
     margin-top: 4px;
     padding: 12px;
     gap: 10px;

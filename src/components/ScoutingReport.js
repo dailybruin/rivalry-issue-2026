@@ -15,7 +15,8 @@ function ScoutingReport({ card, content = {}, current, total, prev, next }) {
   const c = { ...DEFAULT_CONTENT, ...content };
   const backHref = c.backButtonHref || DEFAULT_CONTENT.backButtonHref;
   const teamKey = (card.teamName || '').split(' ')[0].toLowerCase(); // "USC Trojans" -> "usc"
-  const stats = card.stats ?? [];
+  // Skip rows with no value (e.g. a coach with no class or height/weight)
+  const stats = (card.stats ?? []).filter((stat) => stat && String(stat.value ?? '').trim());
   const paragraphs = [].concat(card.report ?? []);
   const counter = c.cardCounterFormat
     .replace('{current}', current)
@@ -45,14 +46,16 @@ function ScoutingReport({ card, content = {}, current, total, prev, next }) {
           <figcaption className="scouting-report__team">{card.teamName}</figcaption>
         </figure>
 
-        <dl className="scouting-report__stats">
-          {stats.map((stat) => (
-            <div className="scouting-report__stat" key={stat.label}>
-              <dt>{stat.label}</dt>
-              <dd>{stat.value}</dd>
-            </div>
-          ))}
-        </dl>
+        {stats.length > 0 && (
+          <dl className="scouting-report__stats">
+            {stats.map((stat) => (
+              <div className="scouting-report__stat" key={stat.label}>
+                <dt>{stat.label}</dt>
+                <dd>{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
 
         <section className="scouting-report__blurb" aria-labelledby="scouting-report-blurb">
           <h2 id="scouting-report-blurb">{c.reportLabel}</h2>

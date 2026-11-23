@@ -50,7 +50,7 @@ const Footer = () => {
           <a href="https://www.twitter.com/dailybruin" target="_blank" rel="noreferrer"><img src={twitter} alt=""/></a>
           <a href="https://www.tiktok.com/@dailybruin" target="_blank" rel="noreferrer"><img src={tiktok} alt=""/></a>
           <a href="http://eepurl.com/cFEiZX" target="_blank" rel="noreferrer"><img src={email} alt=""/></a>
-          <p>Built with Suzy’s ♥ in Kerckhoff 118 by Shayla Kumaresan, Aiman Pushtan, Reyansh Sankhyan, Rahul Puritipati, Nicholas Park. Designed by Patrick Wu.</p>
+          <p>Built by Shayla Kumaresan, Aiman Pashtun, Reyansh Sankhyan, Rahul Puritipati and Nicholas Park. Designed by Patrick Wu. Reporting by Jacob Nguyen</p>
         </Socials>
     </Container>
     )
